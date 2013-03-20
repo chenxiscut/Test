@@ -1,0 +1,69 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="E:\project\tmp\dsp_pd\"
+ProjectType=Executable
+CPUFamily=TMS320C64XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Tool="XDC"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="D:\dvsdk_1_11_00_00\EL_DM6437CCSLib\lib\evmdm6437bsl.lib"
+Source="D:\VLIB\library\c64plus\vlib.l64p"
+Source="dsp_pd.cfg"
+Source="dsp_pd.tcf"
+Source="src\float_hog.c"
+Source="src\i2c_params.c"
+Source="src\image.c"
+Source="src\main.c"
+Source="src\pedestrian_detection.c"
+Source="src\segmentation.c"
+Source="src\svm.c"
+Source="src\svm_data.c"
+Source="src\video_encdec.c"
+Source="xdcpaths.dat"
+
+[Generated Files]
+Source="dsp_pdcfg.s62"
+Source="dsp_pdcfg_c.c"
+Source="xdcconfig\cfg.c"
+Source="xdcconfig\linker.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -pdsw225 -o3 -fr"$(Proj_dir)\Debug" -i"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages" -i"D:\dvsdk_1_11_00_00\examples\video_encdec\evmDM6437" -i"D:\CCStudio_v3.3\bin\utilities\sim\gcc\include" -i"D:\dvsdk_1_11_00_00\EL_DM6437CCSLib\include" -i"D:\VLIB\include" -i"../inc" -i"D:\dvsdk_1_11_00_00\fastRTS_c62xc64x_1_42\c6400\C_fastRTS\include" -i"C:\CCStudio_v3.3\bios_5_31_08\packages" -i"D:\dvsdk_1_11_00_00\edma3_lld_1_05_00\packages" -i"D:\dvsdk_1_11_00_00\examples\common\evmDM6437" -d"CHIP_DM6437" -d"_NTSC" -d"DM6437_SOC_BUILD" -d"_DEBUG" -d"INLINE_C" -mv6400+
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -mv6400
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-Dconfig.importPath="$(Install_dir)/bios_5_31_08/packages;"
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\pd.map" -o".\Debug\pd.out" -w -x -i"D:\VLIB\library\c64plus"
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\dsp_pd.map" -o".\Release\dsp_pd.out" -w -x
+
+["XDC" Settings: "Debug"]
+Options=--xdcpathsfile="xdcpaths.dat" -tti.targets.C64P -pti.platforms.evmDM6437 --tcf
+
+["dsp_pd.tcf" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["xdcpaths.dat" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["xdcpaths.dat" Settings: "Release"]
+ExcludeFromBuild=true
+
+["xdcconfig\linker.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["xdcconfig\linker.cmd" Settings: "Release"]
+LinkOrder=1
+

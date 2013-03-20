@@ -1,0 +1,109 @@
+/*
+ * Do not modify this file; it is automatically generated from the template
+ * linkcmd.xdt in the ti.targets package and will be overwritten.
+ */
+
+/*
+ * put '"'s around paths because, without this, the linker
+ * considers '-' as minus operator, not a file name character.
+ */
+
+
+
+-l"E:\project\dsp_pd\xdcconfig\package\cfg\dsp_pd_x64P.o64P"
+-l"E:\project\dsp_pd\xdcconfig\package\cfg\dsp_pd_x64Pcfg.o64P"
+-l"E:\project\dsp_pd\xdcconfig\package\cfg\dsp_pd_x64Pcfg_c.o64P"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\drivers\resizer\lib\dm6437\Release\rsz_bios_drv.lib"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\drivers\previewer\lib\dm6437\Release\prev_bios_drv.lib"
+-l"D:\dvsdk_1_11_00_00\edma3_lld_1_05_00\packages\ti\sdo\edma3\drv\sample\lib\dm6437\Release\edma3_drv_bios_sample.lib"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\system\dm6437\bios\evmDM6437\video\lib\Release\video_bios_drv.lib"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\drivers\vpfe\lib\dm6437\Release\vpfe_bios_drv.lib"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\drivers\vpbe\lib\dm6437\Release\vpbe_bios_drv.lib"
+-l"D:\dvsdk_1_11_00_00\edma3_lld_1_05_00\packages\ti\sdo\edma3\drv\lib\Release\edma3_drv_bios.lib"
+-l"D:\dvsdk_1_11_00_00\edma3_lld_1_05_00\packages\ti\sdo\edma3\rm\lib\dm6437\Release\edma3_rm_bios.lib"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\drivers\i2c\lib\dm6437\Release\i2c_bios_drv.lib"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\pal_os\bios\lib\dm6437\Release\palos_bios.lib"
+-l"D:\dvsdk_1_11_00_00\pspdrivers_1_10_00\packages\ti\sdo\pspdrivers\pal_sys\dm6437\lib\Release\pal_sys_bios.lib"
+-l"D:\dvsdk_1_11_00_00\xdc_2_95_02\packages\ti\targets\rts6000\lib\ti.targets.rts6000.a64P"
+
+--args 0x200
+
+
+
+/*
+ * Linker command file contributions from all loaded packages:
+ */
+/* Content from xdc (null): */
+
+/* Content from xdc.services.global (null): */
+
+/* Content from xdc.runtime (null): */
+
+/* Content from xdc.platform (null): */
+
+/* Content from xdc.cfg (null): */
+
+/* Content from xdc.shelf (null): */
+
+/* Content from xdc.services.spec (null): */
+
+/* Content from xdc.services.intern.xsr (null): */
+
+/* Content from xdc.services.intern.gen (null): */
+
+/* Content from xdc.services.intern.cmd (null): */
+
+/* Content from ti.catalog.c6000 (null): */
+
+/* Content from ti.platforms.evmDM6437 (null): */
+
+/* Content from ti.targets.rts6000 (null): */
+
+/* Content from ti.psl (ti/psl/psl.xdt): */
+
+/* define the library search paths */
+-i"C:\CCStudio_v3.3\bios_5_31_08\packages\ti\psl\lib/"
+
+/* Content from ti.rtdx (ti/rtdx/rtdx.xdt): */
+
+/* define the library search paths */
+-i"C:\CCStudio_v3.3\bios_5_31_08\packages\ti\rtdx\lib/c6000"
+
+/* Content from xdc.bld (null): */
+
+/* Content from ti.bios (ti/bios/bios.xdt): */
+/* define the library search paths */
+-i"C:\CCStudio_v3.3\bios_5_31_08\packages\ti\bios/lib"
+-i"C:/PROGRA~1/TEXASI~1/C6000C~1.12/lib"
+
+/* include the bios generated linker command file */
+"E:/project/dsp_pd/xdcconfig/package/cfg/dsp_pd_x64Pcfg.cmd"
+
+/* Content from ti.sdo.pspdrivers.common (null): */
+
+/* Content from ti.sdo.pspdrivers.soc.dm6437.dsp (null): */
+
+/* Content from ti.sdo.pspdrivers.pal_sys.dm6437 (null): */
+
+/* Content from ti.sdo.pspdrivers.pal_os.bios (null): */
+
+/* Content from ti.sdo.pspdrivers.drivers.i2c (null): */
+
+/* Content from ti.sdo.edma3.rm (null): */
+
+/* Content from ti.sdo.edma3.drv (null): */
+
+/* Content from ti.sdo.pspdrivers.drivers.vpbe (null): */
+
+/* Content from ti.sdo.pspdrivers.drivers.vpfe (null): */
+
+/* Content from ti.sdo.pspdrivers.system.dm6437.bios.evmDM6437.video (null): */
+
+/* Content from ti.sdo.edma3.drv.sample (null): */
+
+/* Content from ti.sdo.pspdrivers.drivers.previewer (null): */
+
+/* Content from ti.sdo.pspdrivers.drivers.resizer (null): */
+
+/* Content from xdcconfig (null): */
+

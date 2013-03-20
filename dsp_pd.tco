@@ -1,0 +1,6 @@
+# GENERATED FILE -- DO NOT EDIT!
+# This file contains tconf options for file "dsp_pd.tcf",
+# for use by the Gconf graphical configuration tool.
+# The options are exported from the following CCS project: 
+# E:\project\tmp\dsp_pd\dsp_pd.pjt, "Debug" configuration.
+-Dconfig.importPath="C:\CCStudio_v3.3/bios_5_31_08/packages;"

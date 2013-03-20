@@ -1,0 +1,78 @@
+/*
+ *  ======== common.tci ========
+ *  BIOS settings that apply to all the DM6437 Examples.
+ */
+
+/* Enable BIOS Instrumentation and RTA. */
+bios.enableRealTimeAnalysis(prog);
+bios.enableRtdx(prog);	
+bios.GBL.ENABLEALLTRC		= true;
+
+/* Increase the buffer size of the LOG_system LOG object */
+bios.LOG.instance("LOG_system").bufLen = 1024;
+bios.LOG_system.logType = "circular";
+
+/* A LOG object named "trace" used by some examples: */
+bios.LOG.create("trace");
+bios.LOG.instance("trace").bufLen = 4096;
+
+/* Enable BIOS heaps and task scheduler */
+bios.enableTskManager(prog);
+bios.enableMemoryHeaps(prog);
+
+/* Setup heaps in DDR2 and L1DSRAM */
+utils.getProgObjs(prog, bios);
+
+var vDDR2 					= prog.module("MEM").instance("DDR2");
+vDDR2.createHeap   			= true;
+vDDR2.name   				= "DDR2";
+vDDR2.heapSize     			= 0x04000000;
+
+/*
+ *  Enable a heap in the L1DSRAM (internal L1 cache ram)
+ *  and define the label for DSKT2 or DMAN3 heap usage
+ * 
+ *  H.264 Encoder needs 64K of internal memory.
+ *  Otherwise, ACPY3 (used by copy codecs) needs internal memory.
+ */
+bios.L1DSRAM.createHeap     = true;
+bios.L1DSRAM.len			= 0x10000;
+bios.L1DSRAM.enableHeapLabel= true;
+bios.L1DSRAM["heapLabel"]   = prog.extern("L1DHEAP");
+bios.L1DSRAM.heapSize       = 0x10000;	 // Need 64K L1DSRAM heap for H.264Enc.
+
+
+/* GBL configuration */
+bios.GBL.C64PLUSCONFIGURE	= true;
+bios.GBL.C64PLUSL1PCFG      = "32k";
+bios.GBL.C64PLUSL1DCFG      = "16k";
+bios.GBL.C64PLUSL2CFG       = "128k";
+bios.GBL.C64PLUSMAR128to159 = 0x0000ffff;
+
+/* set all BIOS data and code sections to be in DDR */
+bios.setMemDataHeapSections(prog, vDDR2);
+bios.setMemDataNoHeapSections(prog, vDDR2);
+bios.setMemCodeSections(prog, vDDR2);
+
+/* Ensure these are in external memory: */
+bios.MEM.MALLOCSEG 			= vDDR2;
+bios.MEM.BIOSOBJSEG 		= vDDR2;
+bios.TSK.STACKSEG 			= vDDR2;
+
+/* Make global stack size large enough for all examples: */
+bios.MEM.STACKSIZE			= 0x8000;
+
+/* Take the selected timer out of reset */
+bios.CLK.TIMERSELECT 		= "Timer 0";
+bios.CLK.RESETTIMER 		= true;          
+
+/* 
+ * Workaround to allow Kernel Object View (KOV) to work in CCS:  
+ * Can be removed when bug SDSCM00015944 resolved (expected in bios 5.32)
+ */
+bios.MSGQ.ENABLEMSGQ = false;
+bios.POOL.ENABLEPOOL = false;
+
+/* Remove IRAM segment to leave room for 128K L2 cache: */
+bios.IRAM.destroy();
+
